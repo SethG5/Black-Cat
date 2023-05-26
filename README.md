@@ -1,2 +1,2 @@
-# Red-Rabbit
-A console-like program made in Rust which features scripting in python
+# Black-Cat
+A purrfect tool made in Rust with Python scripting for pentesters, security analyst, hackers, and silly cats alike.
