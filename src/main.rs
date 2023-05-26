@@ -2,6 +2,7 @@ use std::ffi::OsString;
 use std::io;
 use gethostname::gethostname;
 use pyo3::prelude::*;
+use std::time::SystemTime;
 
 const LOGO: &str = r"
    |\---/|
@@ -13,11 +14,21 @@ const LOGO: &str = r"
 
 ";
 const NAME: &str = "Sleepy Cat";
-const PROMPT: &str = ("┌─[{user}\033[1;33m@\033[0;36m\033[31m]─[{dir}]\n└──╼ $\033[1;37m");
 
-
+fn prompt(tool: &str) -> String {
+    let time = SystemTime::now();
+    let mut command = String::new();
+    println!("({:?})-({})\n({})-> ", time, tool, whoami::username());
+    std::io::stdin().read_line(&mut line).unwrap();
+    return command;
+}
 
 fn main() {
     println!("{LOGO}");
-    println!("Welcome to Sleepy Cat {:?}", user);
+    println!("Welcome to Sleepy Cat {:?}", whoami::realname());
+
+    println!("{}", whoami::distro());
+    println!("{}", whoami::devicename());
+    println!("{}", whoami::hostname());
+
 }
