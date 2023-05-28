@@ -8,3 +8,4 @@ edition = "2021"
 [dependencies]
 pyo3 = "0.18.3"
 whoami = "1.4.0"
+chrono = "0.4.24"
